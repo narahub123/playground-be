@@ -7,13 +7,7 @@
     "moduleResolution": "NodeNext",
     "baseUrl": "src",
     "paths": {
-      "@/*": ["*"],
-      "@controllers": ["controllers/*"],
-      "@services": ["services/*"],
-      "@routes": ["routes/*"],
-      "@middlewares": ["middlewares/*"],
-      "@models": ["models/*"],
-      "@utils": ["utils/*"]
+      "@/*": ["*"]
     },
     "typeRoots": ["./node_module/@types"],
     "resolveJsonModule": true,
