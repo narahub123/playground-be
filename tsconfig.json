@@ -6,7 +6,11 @@
     "rootDir": "./src",
     "moduleResolution": "NodeNext",
     "baseUrl": "src",
-    
+    "paths": {
+      "@utils": ["utils"],
+      "@utils/*": ["utils/*"],
+      "@db/*": ["db/*"]
+    },
     "typeRoots": ["./node_module/@types"],
     "resolveJsonModule": true,
     "allowJs": true,

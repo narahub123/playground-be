@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { getEnv } from "../utils/getEnv";
+import { getEnv } from "@utils";
 
 const connectDB = async () => {
   const mongoUrl = getEnv("MONGO_URL");

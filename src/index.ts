@@ -4,9 +4,8 @@ dotenv.config();
 import cookieParser from "cookie-parser";
 import compression from "compression";
 import cors from "cors";
-
-import connectDB from "./db/connectDB";
-import { getEnv } from "./utils/getEnv";
+import { getEnv } from "@utils";
+import connectDB from "@db/connectDB";
 
 const app = express();
 
