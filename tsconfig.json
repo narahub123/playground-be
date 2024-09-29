@@ -6,9 +6,7 @@
     "rootDir": "./src",
     "moduleResolution": "NodeNext",
     "baseUrl": "src",
-    "paths": {
-      "@/*": ["*"]
-    },
+    
     "typeRoots": ["./node_module/@types"],
     "resolveJsonModule": true,
     "allowJs": true,

@@ -4,7 +4,9 @@ dotenv.config();
 import cookieParser from "cookie-parser";
 import compression from "compression";
 import cors from "cors";
-import { getEnv } from "./utils";
+
+import connectDB from "./db/connectDB";
+import { getEnv } from "./utils/getEnv";
 
 const app = express();
 
@@ -24,6 +26,8 @@ app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 app.use(cookieParser());
 app.use(compression());
+
+connectDB();
 
 const PORT = getEnv("PORT");
 
