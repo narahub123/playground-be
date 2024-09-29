@@ -7,9 +7,9 @@
     "moduleResolution": "NodeNext",
     "baseUrl": "src",
     "paths": {
+      "@db/*": ["db/*"],
       "@utils": ["utils"],
-      "@utils/*": ["utils/*"],
-      "@db/*": ["db/*"]
+      "@utils/*": ["utils/*"]
     },
     "typeRoots": ["./node_module/@types"],
     "resolveJsonModule": true,

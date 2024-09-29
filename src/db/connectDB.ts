@@ -4,6 +4,14 @@ import { getEnv } from "@utils";
 const connectDB = async () => {
   const mongoUrl = getEnv("MONGO_URL");
 
+  if (!mongoUrl) {
+    console.error(
+      "환경 변수 MONGO_URL이 설정되어 있지 않아 몽고DB와의 연결이 실패하였습니다."
+    );
+
+    return;
+  }
+
   // 디버깅 모드 활성화
   mongoose.set("debug", true);
 
@@ -13,9 +21,10 @@ const connectDB = async () => {
     console.log(
       `몽고DB 데이터베이스 ${mongoose.connection.name}에 연결되었습니다.`
     );
-  } catch (error) {
-    console.error(`몽고DB와 연결이 실패하였습니다.`, error);
-    process.exit(1);
+  } catch (error: any) {
+    console.error(`몽고DB와 연결이 실패하였습니다.`, error.message);
+
+    return;
   }
 
   // 연결 상태 확인
