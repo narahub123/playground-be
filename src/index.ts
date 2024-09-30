@@ -4,14 +4,16 @@ dotenv.config();
 import cookieParser from "cookie-parser";
 import compression from "compression";
 import cors from "cors";
+import swaggerUI from "swagger-ui-express";
+import swaggerDocumnet from "swagger/swagger.json";
 import { getEnv } from "@utils";
 import connectDB from "@db/connectDB";
 
 const app = express();
 
-// 포트 환경 변수 설정 여부 확인
-
 const baseUrl = getEnv("BASE_URL");
+
+app.use("/swagger", swaggerUI.serve, swaggerUI.setup(swaggerDocumnet));
 
 app.use(
   cors({
