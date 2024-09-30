@@ -1,4 +1,7 @@
 import express from "express";
 import { authController } from "@controllers";
 
-export default (router: express.Router) => {};
+export default (router: express.Router) => {
+  const { checkExistingEamil } = authController;
+  router.post("/auth/checkExistingEmail", checkExistingEamil);
+};
