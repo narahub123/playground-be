@@ -10,7 +10,9 @@
       "@db/*": ["db/*"],
       "@utils": ["utils"],
       "@utils/*": ["utils/*"],
-      "@swagger/*": ["swagger/*"]
+      "@swagger/*": ["swagger/*"],
+      "@models": ["models"],
+      "@models/*": ["models/*"]
     },
     "typeRoots": ["./node_module/@types"],
     "resolveJsonModule": true,
