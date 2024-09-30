@@ -9,6 +9,7 @@ import swaggerDocumnet from "swagger/swagger.json";
 import { getEnv } from "@utils";
 import connectDB from "@db/connectDB";
 import routes from "@routes";
+import { errorHandler } from "@middlewares";
 
 const app = express();
 
@@ -39,3 +40,6 @@ app.listen(PORT, () => {
 
 // 라우팅
 app.use("/", routes());
+
+// 에러 핸들링
+app.use(errorHandler);
