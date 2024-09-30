@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from "express";
 import { getEnv } from "@utils";
 import { asyncWrapper } from "@middlewares";
 import { userServices } from "@services";
+import { BadRequest, DuplicateError } from "errors";
 
 const baseUrl = getEnv("BASE_URL");
 
@@ -14,21 +15,13 @@ const authController = {
       const { email } = req.body;
 
       if (!email) {
-        return res.status(400).json({
-          status: "error",
-          message: "이메일이 제공되지 않았습니다.",
-          statusText: "BadRequest",
-        });
+        throw new BadRequest("이메일이 제공되지 않았습니다.");
       }
 
       const user = await getUserByEamil(email);
 
       if (user) {
-        return res.status(409).json({
-          status: "error",
-          message: "이미 존재하는 이메일입니다.",
-          statusText: "duplicate error",
-        });
+        throw new DuplicateError("이미 존재하는 이메일입니다.");
       }
 
       res.status(200).json({
