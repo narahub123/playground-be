@@ -1,6 +1,6 @@
-import { getEnv } from "@utils";
 import express, { Request, Response, NextFunction } from "express";
-import { asyncWrapper } from "middlewares";
+import { getEnv } from "@utils";
+import { asyncWrapper } from "@middlewares";
 import { userServices } from "@services";
 
 const baseUrl = getEnv("BASE_URL");

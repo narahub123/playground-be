@@ -18,7 +18,9 @@
       "@controllers": ["controllers"],
       "@controllers/*": ["controllers/*"],
       "@services": ["services"],
-      "@services/*": ["services/*"]
+      "@services/*": ["services/*"],
+      "@middlewares": ["middlewares"],
+      "@middlewares/*": ["middlewares/*"]
     },
     "typeRoots": ["./node_module/@types"],
     "resolveJsonModule": true,
