@@ -8,6 +8,7 @@ import swaggerUI from "swagger-ui-express";
 import swaggerDocumnet from "swagger/swagger.json";
 import { getEnv } from "@utils";
 import connectDB from "@db/connectDB";
+import routes from "@routes";
 
 const app = express();
 
@@ -35,3 +36,6 @@ const PORT = getEnv("PORT");
 app.listen(PORT, () => {
   console.log(`서버가 포트 ${PORT}에 연결되었습니다.`);
 });
+
+// 라우팅
+app.use("/", routes());
