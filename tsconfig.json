@@ -12,7 +12,13 @@
       "@utils/*": ["utils/*"],
       "@swagger/*": ["swagger/*"],
       "@models": ["models"],
-      "@models/*": ["models/*"]
+      "@models/*": ["models/*"],
+      "@routes": ["routes"],
+      "@routes/*": ["routes/*"],
+      "@controllers": ["controllers"],
+      "@controllers/*": ["controllers/*"],
+      "@services": ["services"],
+      "@services/*": ["services/*"]
     },
     "typeRoots": ["./node_module/@types"],
     "resolveJsonModule": true,
