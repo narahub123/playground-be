@@ -2,11 +2,11 @@ import express, { Request, Response, NextFunction } from "express";
 import { getEnv } from "@utils";
 import { asyncWrapper } from "@middlewares";
 import { userServices } from "@services";
-import { BadRequest, DuplicateError } from "errors";
+import { BadRequest, DuplicateError, NotFound } from "errors";
 
 const baseUrl = getEnv("BASE_URL");
 
-const { getUserByEamil } = userServices;
+const { getUserByEamil, getUserById } = userServices;
 
 const authController = {
   checkExistingEamil: asyncWrapper(
@@ -29,6 +29,30 @@ const authController = {
         message: "사용 가능한 이메일입니다.",
         statusText: "ok",
       });
+    }
+  ),
+  checkExistingId: asyncWrapper(
+    "checkExistingId",
+    async (req: Request, res: Response) => {
+      const { id } = req.body;
+
+      if (!id) {
+        throw new NotFound("id를 제공해주세요.");
+      }
+
+      const user = await getUserById(id);
+
+      if (user) {
+        throw new DuplicateError("이미 존재하는 아이디입니다.");
+      }
+
+      res
+        .status(200)
+        .json({
+          status: "success",
+          message: "사용 가능한 아이디입니다.",
+          statusText: "ok",
+        });
     }
   ),
 };
